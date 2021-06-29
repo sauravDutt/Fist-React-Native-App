@@ -6,17 +6,25 @@ export default function App() {
     <View
       style={{
         flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
+        padding: 26,
         backgroundColor: "#1f1f1f",
       }}
     >
       <Text
         style={{
           color: 'white',
+          marginTop: 40,
           fontSize: 20,
         }}
-      >sauravDutt First app 🍻</Text>
+      >sauravDutt</Text>
+      <Text
+      style={{
+        color: 'white',
+        fontSize: 20,
+      }}
+      >
+      First-App🖖 
+      </Text>
     </View>
   );
 }
