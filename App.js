@@ -8,9 +8,15 @@ export default function App() {
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
+        backgroundColor: "#1f1f1f",
       }}
     >
-      <Text>sauravDutt First app 🍻</Text>
+      <Text
+        style={{
+          color: 'white',
+          fontSize: 20,
+        }}
+      >sauravDutt First app 🍻</Text>
     </View>
   );
 }
