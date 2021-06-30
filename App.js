@@ -1,15 +1,22 @@
 import * as React from "react";
-import { View, Text } from "react-native";
+import { View, Text, ScrollView, TextInput, Image } from "react-native";
 
-export default function App() {
+const MainArea = () => {
   return (
-    <View
+    <ScrollView
       style={{
         flex: 1,
         padding: 26,
         backgroundColor: "#1f1f1f",
       }}
     >
+      <View 
+        style={{
+          overflow: "hidden",
+          top: 0,
+          position: 'fixed',
+        }}
+      >
       <Text
         style={{
           color: 'white',
@@ -25,7 +32,41 @@ export default function App() {
       >
       First-App🖖 
       </Text>
-    </View>
+      <TextInput
+        style={{
+          height: 40,
+          borderRadius: 10,
+          borderWidth: 1,
+          marginTop: 20,
+          padding: 10,
+          color: "white",
+          backgroundColor: 'transparent',
+          borderColor: 'gray'
+        }}
+        placeholder="Your Research !!"
+      />
+      </View>
+      <View
+        style={{
+          width:320,
+          height: 420,
+        }}
+      >
+
+      </View>
+      <Image
+        source={require('./assets/drone.gif')} 
+        style={{
+          width: 320,
+          height: 420,
+          marginTop: 20,
+          borderRadius: 5,
+        }}
+      />
+      
+    </ScrollView>
   );
 }
+
+export default MainArea;
  
