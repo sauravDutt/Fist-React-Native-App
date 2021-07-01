@@ -3,7 +3,7 @@ import { View, Text, ScrollView, TextInput, Image } from "react-native";
 
 const MainArea = () => {
   return (
-    <ScrollView
+    <View
       style={{
         flex: 1,
         padding: 26,
@@ -17,54 +17,67 @@ const MainArea = () => {
           position: 'fixed',
         }}
       >
-      <Text
+        <Text
+          style={{
+            color: 'white',
+            marginTop: 40,
+            fontSize: 20,
+          }}
+        >sauravDutt</Text>
+        <Text
         style={{
           color: 'white',
-          marginTop: 40,
           fontSize: 20,
         }}
-      >sauravDutt</Text>
-      <Text
-      style={{
-        color: 'white',
-        fontSize: 20,
-      }}
-      >
-      First-App🖖 
-      </Text>
-      <TextInput
-        style={{
-          height: 40,
-          borderRadius: 10,
-          borderWidth: 1,
-          marginTop: 20,
-          padding: 10,
-          color: "white",
-          backgroundColor: 'transparent',
-          borderColor: 'gray'
-        }}
-        placeholder="Your Research !!"
-      />
+        >
+        First-App🖖 
+        </Text>
+        <TextInput
+          style={{
+            height: 40,
+            borderRadius: 10,
+            borderWidth: 1,
+            marginTop: 20,
+            padding: 10,
+            color: "white",
+            backgroundColor: 'transparent',
+            borderColor: 'gray'
+          }}
+          placeholder="Your Research !!"
+        />
       </View>
-      <View
+      <ScrollView
         style={{
           width:320,
-          height: 420,
+          height: 20,
+          padding: 10,
+          marginTop: 20,
+          marginBottom: 20,
+          borderRadius: 10,
+          backgroundColor: "rgba(255, 255, 255, 0.021)",
         }}
       >
+          <Image
+          source={require('./assets/drone.gif')} 
+          style={{
+            width: 300,
+            height: 220,
+            borderRadius: 5,
+          }}
+        />
+      </ScrollView>
+        {/* <Image
+          source={require('./assets/drone.gif')} 
+          style={{
+            width: 320,
+            height: 420,
+            marginTop: 20,
+            marginBottom: 80,
+            borderRadius: 5,
+          }}
+        /> */}
 
-      </View>
-      <Image
-        source={require('./assets/drone.gif')} 
-        style={{
-          width: 320,
-          height: 420,
-          marginTop: 20,
-          borderRadius: 5,
-        }}
-      />
-      
-    </ScrollView>
+    </View>
   );
 }
 
