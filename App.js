@@ -1,16 +1,9 @@
 import * as React from "react";
 import { View, Text, ScrollView, TextInput, Image } from "react-native";
 
-const MainArea = () => {
+const Header = () => {
   return (
-    <View
-      style={{
-        flex: 1,
-        padding: 26,
-        backgroundColor: "#1f1f1f",
-      }}
-    >
-      <View 
+    <View 
         style={{
           overflow: "hidden",
           top: 0,
@@ -23,7 +16,7 @@ const MainArea = () => {
             marginTop: 40,
             fontSize: 20,
           }}
-        >sauravDutt</Text>
+        >Research</Text>
         <Text
         style={{
           color: 'white',
@@ -46,7 +39,65 @@ const MainArea = () => {
           placeholder="Your Research !!"
         />
       </View>
-      <ScrollView
+  );
+}
+const Footer = () => {
+  return (
+    <Text 
+        style={{
+          textAlign: 'center',
+          color: "rgba(255, 255, 255, 0.562)",
+          marginBottom:20,
+        }}
+      > 
+      @ sauravDutt - This is just a practice project
+      </Text>
+  );
+}
+const PostTopics = (props) => {
+  return (
+    <View
+    style={{
+      padding: 0,
+      textAlign: 'left',
+      lineHeight: 1,
+    }}
+    >
+    <Image
+        source={require('./assets/drone.gif')} 
+        style={{
+          width: 300,
+          height: 220,
+          borderRadius: 5,
+        }}
+        />
+        <Text
+        style={{
+          color:'white',
+          fontSize: 20,
+          marginTop:-60,
+          padding:10,
+        }}
+        >
+          {props.title}
+        </Text>
+
+        <Text
+        style={{
+          color:'white',
+          fontSize: 15,
+          marginTop: -20,
+          padding:10,
+        }}
+        ># {props.number} Topic of Research
+        </Text>
+      </View>
+  );
+}
+
+const Posts = () => {
+  return (
+    <ScrollView
         style={{
           width:320,
           height: 20,
@@ -57,34 +108,38 @@ const MainArea = () => {
           backgroundColor: "rgba(255, 255, 255, 0.021)",
         }}
       >
-          <Image
-          source={require('./assets/drone.gif')} 
-          style={{
-            width: 300,
-            height: 220,
-            borderRadius: 5,
-          }}
-        />
+      <PostTopics  title = "droneTech" number='1'/>
       </ScrollView>
-      <Text 
-        style={{
-          textAlign: 'center',
-          color: "white",
-          marginBottom:20,
-        }}
-      > 
-      @ sauravDutt - This is just a practice project
-      </Text>
-        {/* <Image
-          source={require('./assets/drone.gif')} 
-          style={{
-            width: 320,
-            height: 420,
-            marginTop: 20,
-            marginBottom: 80,
-            borderRadius: 5,
-          }}
-        /> */}
+  );
+}
+
+const Caption = () => {
+  return (
+    <Text
+      style ={{
+        textAlign:'center',
+        color:'rgba(255, 255, 255, 0.562)',
+        marginTop: 10,
+        marginBottom: -10,
+      }}
+    >
+      Choose A Topic For Research 👇 
+    </Text>
+  )
+}
+const MainArea = () => {
+  return (
+    <View
+      style={{
+        flex: 1,
+        padding: 26,
+        backgroundColor: "#1f1f1f",
+      }}
+    >
+      <Header />
+      <Caption />
+      <Posts />
+      <Footer />
 
     </View>
   );
