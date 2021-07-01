@@ -16,7 +16,7 @@ const Header = () => {
             marginTop: 40,
             fontSize: 20,
           }}
-        >Research</Text>
+        >Insights</Text>
         <Text
         style={{
           color: 'white',
@@ -54,7 +54,7 @@ const Footer = () => {
       </Text>
   );
 }
-const PostTopics = (props) => {
+const PostTopicsOne = () => {
   return (
     <View
     style={{
@@ -79,7 +79,7 @@ const PostTopics = (props) => {
           padding:10,
         }}
         >
-          {props.title}
+          droneTech
         </Text>
 
         <Text
@@ -89,7 +89,134 @@ const PostTopics = (props) => {
           marginTop: -20,
           padding:10,
         }}
-        ># {props.number} Topic of Research
+        ># 1 Topic of Research
+        </Text>
+      </View>
+  );
+}
+
+const PostTopicsTwo = () => {
+  return (
+    <View
+    style={{
+      padding: 0,
+      marginTop: 15,
+      textAlign: 'left',
+      lineHeight: 1,
+    }}
+    >
+    <Image
+        source={require('./assets/hero.gif')} 
+        style={{
+          width: 300,
+          height: 220,
+          borderRadius: 5,
+        }}
+        />
+        <Text
+        style={{
+          color:'white',
+          fontSize: 20,
+          marginTop:-60,
+          padding:10,
+        }}
+        >
+          artificialNeuralNetwork
+        </Text>
+
+        <Text
+        style={{
+          color:'white',
+          fontSize: 15,
+          marginTop: -20,
+          padding:10,
+        }}
+        ># 2 Topic of Rwsearch
+        </Text>
+      </View>
+  );
+}
+
+const PostTopicsThree = () => {
+  return(
+    <View
+    style={{
+      padding: 0,
+      marginTop: 15,
+      textAlign: 'left',
+      lineHeight: 1,
+    }}
+    >
+    <Image
+        source={require('./assets/python.gif')} 
+        style={{
+          width: 300,
+          height: 220,
+          borderRadius: 5,
+        }}
+        />
+        <Text
+        style={{
+          color:'white',
+          fontSize: 20,
+          marginTop:-60,
+          padding:10,
+        }}
+        >
+          automation
+        </Text>
+
+        <Text
+        style={{
+          color:'white',
+          fontSize: 15,
+          marginTop: -20,
+          padding:10,
+        }}
+        ># 3 Topic of Research
+        </Text>
+      </View>
+  );
+}
+
+const PostTopicsFour = () => {
+  return(
+    <View
+    style={{
+      padding: 0,
+      marginTop: 15,
+      marginBottom: 20,
+      textAlign: 'left',
+      lineHeight: 1,
+    }}
+    >
+    <Image
+        source={require('./assets/rickMoty.gif')} 
+        style={{
+          width: 300,
+          height: 220,
+          borderRadius: 5,
+        }}
+        />
+        <Text
+        style={{
+          color:'#000',
+          fontSize: 20,
+          marginTop:-60,
+          padding:10,
+        }}
+        >
+          tvShows
+        </Text>
+
+        <Text
+        style={{
+          color:'#000',
+          fontSize: 15,
+          marginTop: -20,
+          padding:10,
+        }}
+        ># 4 Topic of Rwsearch
         </Text>
       </View>
   );
@@ -108,7 +235,10 @@ const Posts = () => {
           backgroundColor: "rgba(255, 255, 255, 0.021)",
         }}
       >
-      <PostTopics  title = "droneTech" number='1'/>
+      <PostTopicsOne />
+      <PostTopicsTwo />
+      <PostTopicsThree />
+      <PostTopicsFour />
       </ScrollView>
   );
 }
