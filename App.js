@@ -40,8 +40,8 @@ const MainArea = () => {
             marginTop: 20,
             padding: 10,
             color: "white",
-            backgroundColor: 'transparent',
             borderColor: 'gray'
+            
           }}
           placeholder="Your Research !!"
         />
@@ -52,7 +52,7 @@ const MainArea = () => {
           height: 20,
           padding: 10,
           marginTop: 20,
-          marginBottom: 20,
+          marginBottom: 15,
           borderRadius: 10,
           backgroundColor: "rgba(255, 255, 255, 0.021)",
         }}
@@ -66,6 +66,15 @@ const MainArea = () => {
           }}
         />
       </ScrollView>
+      <Text 
+        style={{
+          textAlign: 'center',
+          color: "white",
+          marginBottom:20,
+        }}
+      > 
+      @ sauravDutt - This is just a practice project
+      </Text>
         {/* <Image
           source={require('./assets/drone.gif')} 
           style={{
