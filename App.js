@@ -1,5 +1,5 @@
 import * as React from "react";
-import { View, Text, ScrollView, TextInput, Image } from "react-native";
+import {View, ActivityIndicator, Text, Button , ScrollView, TextInput, Image, Alert } from "react-native";
 
 const Header = () => {
   return (
@@ -10,34 +10,46 @@ const Header = () => {
           position: 'fixed',
         }}
       >
-        <Text
+        <View
           style={{
-            color: 'white',
+            flexDirection: 'row',
+            justifyContent: 'space-between',
             marginTop: 40,
-            fontSize: 20,
           }}
-        >Insights</Text>
-        <Text
-        style={{
-          color: 'white',
-          fontSize: 20,
-        }}
         >
-        First-App🖖 
-        </Text>
-        <TextInput
-          style={{
-            height: 40,
-            borderRadius: 10,
-            borderWidth: 1,
-            marginTop: 20,
-            padding: 10,
-            color: "white",
-            borderColor: 'gray'
-            
-          }}
-          placeholder="Your Research !!"
-        />
+          <Button 
+            title='Add'
+            onPress={() => Alert.alert("Soon this button will let you add an insight, when I'll figure out how to add backend to a react native app")}
+          />
+          <Text
+            style={{
+              color: 'white',
+              marginTop: 4,
+              fontSize: 20,
+            }}
+          > 
+            insights
+          </Text>
+          <Button 
+            title='Info'
+            onPress={() => Alert.alert('This is just a practice, react native application, trying to cover all the important concepts of this framework and trying to master the art.')}
+          />
+        </View>
+          <TextInput
+            style={{
+              height: 40,
+              borderRadius: 10,
+              borderWidth: 0.1,
+              padding: 10,
+              marginTop: 20,
+              color: "white",
+              width: '100%',
+              borderColor: 'white',
+              backgroundColor: 'rgba(255, 255, 255, 0.031)'
+              
+            }}
+            placeholder="Search "
+          />  
       </View>
   );
 }
@@ -131,7 +143,7 @@ const PostTopicsTwo = () => {
           marginTop: -20,
           padding:10,
         }}
-        ># 2 Topic of Rwsearch
+        ># 2 Topic of Research
         </Text>
       </View>
   );
@@ -216,7 +228,7 @@ const PostTopicsFour = () => {
           marginTop: -20,
           padding:10,
         }}
-        ># 4 Topic of Rwsearch
+        ># 4 Topic of Research
         </Text>
       </View>
   );
@@ -253,7 +265,7 @@ const Caption = () => {
         marginBottom: -10,
       }}
     >
-      Choose A Topic For Research 👇 
+      Choose a topic of interest 👇 
     </Text>
   )
 }
