@@ -1,7 +1,6 @@
 import * as React from "react";
 import {View, Text, Button, KeyboardAvoidingView, ScrollView, StatusBar, TextInput, StyleSheet, Keyboard, TouchableWithoutFeedback, Platform, Image, Alert } from "react-native";
 import {useState} from 'react';
-import Login from "./components/Login";
 
 const Footer = () => {
   return (
