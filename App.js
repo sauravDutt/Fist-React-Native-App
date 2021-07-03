@@ -183,12 +183,13 @@ const MainArea = () => {
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
           <Image
-            source={require('./assets/hero.gif')} 
+            source={require('./assets/ann.gif')} 
             style={{
               width: 300,
               height: 220,
               borderRadius: 5,
               marginBottom: 10,
+              resizeMode:"contain",
             }}
           />
               <Text 
@@ -235,7 +236,7 @@ const MainArea = () => {
             title='Login'
             onPress={() => setlogin(true)}
           />
-          <Text
+          {/* <Text
             style={{
               color: 'white',
               marginTop: 4,
@@ -243,7 +244,17 @@ const MainArea = () => {
             }}
           > 
             insights
-          </Text>
+          </Text> */}
+          <Image
+            source={require('./assets/logo.png')} 
+            style={{
+              marginTop:-10,
+              marginBottom:-15,
+              width: 146,
+              height: 90,
+              resizeMode:"contain",
+            }}
+          />
           <Button 
             title='Info'
             onPress={() => Alert.alert('This is just a practice, react native application, trying to cover all the important concepts of this framework and trying to master the art, Nothing serious just practicing.')}
@@ -252,20 +263,18 @@ const MainArea = () => {
           <TextInput
             style={{
               height: 40,
-              borderRadius: 10,
-              borderWidth: 0.1,
+              borderColor: "rgba(255, 255, 255, 0.390)",
+              borderRadius:5,
+              borderBottomWidth: 1,
               padding: 10,
               marginTop: 20,
               color: "white",
               width: '100%',
-              borderColor: 'white',
-              backgroundColor: 'rgba(255, 255, 255, 0.031)'
               
             }}
             placeholder="Search "
           />  
       </View>
-        <Caption />
         <ScrollView
           style={{
             width:330,
