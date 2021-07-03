@@ -17,48 +17,6 @@ const Footer = () => {
 }
 
 
-const PostTopicsTwo = () => {
-  return (
-    <View
-    style={{
-      padding: 0,
-      marginTop: 15,
-      textAlign: 'left',
-      lineHeight: 1,
-    }}
-    >
-    <Image
-        source={require('./assets/hero.gif')} 
-        style={{
-          width: 300,
-          height: 220,
-          borderRadius: 5,
-        }}
-        />
-        <Text
-        style={{
-          color:'white',
-          fontSize: 20,
-          marginTop:-60,
-          padding:10,
-        }}
-        >
-          artificialNeuralNetwork
-        </Text>
-
-        <Text
-        style={{
-          color:'white',
-          fontSize: 15,
-          marginTop: -20,
-          padding:10,
-        }}
-        ># 2 Topic of Research
-        </Text>
-      </View>
-  );
-}
-
 const PostTopicsThree = () => {
   return(
     <View
@@ -162,6 +120,7 @@ const MainArea = () => {
   const [login, setlogin] = useState(false);
   const [signin, setSignin] = useState(false);
   const [modalVisible, setModalVisible] = useState(false);
+  const [modalAnn, setModalAnn] = useState(false);
   
   
   if (!login) {
@@ -206,6 +165,46 @@ const MainArea = () => {
               <Pressable
                 style={[styles.button, styles.buttonClose]}
                 onPress={() => setModalVisible(!modalVisible)}
+              >
+                <Text style={styles.textStyle}>Done Reading</Text>
+              </Pressable>
+          </View>
+        </View>
+      </Modal>
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={modalAnn}
+        onRequestClose={() => {
+          Alert.alert("Modal has been closed.");
+          setModalAnn(!modalAnn);
+        }}
+      >
+        <View style={styles.centeredView}>
+          <View style={styles.modalView}>
+          <Image
+            source={require('./assets/hero.gif')} 
+            style={{
+              width: 300,
+              height: 220,
+              borderRadius: 5,
+              marginBottom: 10,
+            }}
+          />
+              <Text 
+                style={{
+                  fontSize: 20,
+                  marginBottom: 5,
+                  fontWeight: "300",
+                }}
+              >
+                artificial<Text style={{color:'#007ce2'}}>NeuralNetwork</Text>
+              </Text>
+              <Text style={styles.modalText}>An artificial neural network (ANN) is the piece of a computing system designed to simulate the way the human brain analyzes and processes information. It is the foundation of artificial intelligence (AI) and solves problems that would prove impossible or difficult by human or statistical standards. ANNs have self-learning capabilities that enable them to produce better results as more data becomes available.</Text>
+              <Text style={styles.modalText}>There will be some more info about Artificial Neural Networks soon.</Text>
+              <Pressable
+                style={[styles.button, styles.buttonClose]}
+                onPress={() => setModalAnn(!modalAnn)}
               >
                 <Text style={styles.textStyle}>Done Reading</Text>
               </Pressable>
@@ -327,7 +326,57 @@ const MainArea = () => {
               </Pressable>
             </View>
           </View>
-          <PostTopicsTwo />
+          <View
+            style={{
+              padding: 0,
+              marginTop: 15,
+              textAlign: 'left',
+              lineHeight: 1,
+            }}
+          >
+              <Image
+                source={require('./assets/hero.gif')} 
+                style={{
+                  width: 300,
+                  height: 220,
+                  borderRadius: 5,
+                }}
+              />
+                  <Text
+                  style={{
+                    color:'white',
+                    fontSize: 20,
+                    marginTop:-60,
+                    padding:10,
+                  }}
+                  >
+                    artificialNeuralNetwork
+                  </Text>
+
+                  <View
+                    style={{
+                      width:'100%',
+                      flexDirection: 'row',
+                      justifyContent: 'space-between',
+                      marginTop: -20,
+                    }}
+                  >
+                    <Text
+                    style={{
+                      color:'white',
+                      fontSize: 15,
+                      padding:10,
+                    }}
+                    ># 2 Topic of Research
+                    </Text>
+                    <Pressable
+                      style={[styles.button, styles.buttonOpenAnn]}
+                      onPress={() => setModalAnn(true)}
+                    >
+                      <Text style={styles.textStyle}>Read More</Text>
+                    </Pressable>
+                  </View>
+            </View>
           <PostTopicsThree />
           <PostTopicsFour />
         </ScrollView>
@@ -412,7 +461,7 @@ const styles = StyleSheet.create({
   },
   modalView: {
     margin: 20,
-    marginTop:150,
+    marginTop:130,
     backgroundColor: "white",
     borderRadius: 20,
     padding: 20,
@@ -434,6 +483,10 @@ const styles = StyleSheet.create({
   buttonOpen: {
     backgroundColor: "rgba(0, 59, 107, 0.384)",
     marginRight:5,
+  },
+  buttonOpenAnn: {
+    backgroundColor: 'rgba(22, 22, 22, 0.315)',
+    marginRight: 5,
   },
   buttonClose: {
     backgroundColor: "#2196F3",
