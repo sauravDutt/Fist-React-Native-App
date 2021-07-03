@@ -1,5 +1,5 @@
 import * as React from "react";
-import {View, Text, Button, KeyboardAvoidingView, ScrollView, StatusBar, TextInput, StyleSheet, Keyboard, TouchableWithoutFeedback, Platform, Image, Alert } from "react-native";
+import {View, Text, Button, KeyboardAvoidingView, ScrollView, StatusBar, TextInput, StyleSheet, Keyboard, TouchableWithoutFeedback, Platform, Image, Alert, Modal, Pressable } from "react-native";
 import {useState} from 'react';
 
 const Footer = () => {
@@ -15,46 +15,7 @@ const Footer = () => {
       </Text>
   );
 }
-const PostTopicsOne = () => {
-  return (
-    <View
-    style={{
-      padding: 0,
-      textAlign: 'left',
-      lineHeight: 1,
-    }}
-    >
-    <Image
-        source={require('./assets/drone.gif')} 
-        style={{
-          width: 300,
-          height: 220,
-          borderRadius: 5,
-        }}
-        />
-        <Text
-        style={{
-          color:'white',
-          fontSize: 20,
-          marginTop:-60,
-          padding:10,
-        }}
-        >
-          droneTech
-        </Text>
 
-        <Text
-        style={{
-          color:'white',
-          fontSize: 15,
-          marginTop: -20,
-          padding:10,
-        }}
-        ># 1 Topic of Research
-        </Text>
-      </View>
-  );
-}
 
 const PostTopicsTwo = () => {
   return (
@@ -183,27 +144,6 @@ const PostTopicsFour = () => {
   );
 }
 
-const Posts = () => {
-  return (
-    <ScrollView
-        style={{
-          width:330,
-          height: 20,
-          padding: 15,
-          marginTop: 20,
-          marginBottom: 15,
-          borderRadius: 10,
-          backgroundColor: "rgba(255, 255, 255, 0.021)",
-        }}
-      >
-      <PostTopicsOne />
-      <PostTopicsTwo />
-      <PostTopicsThree />
-      <PostTopicsFour />
-      </ScrollView>
-  );
-}
-
 const Caption = () => {
   return (
     <Text
@@ -221,6 +161,9 @@ const Caption = () => {
 const MainArea = () => {
   const [login, setlogin] = useState(false);
   const [signin, setSignin] = useState(false);
+  const [modalVisible, setModalVisible] = useState(false);
+  
+  
   if (!login) {
     return(
       <View
@@ -229,6 +172,46 @@ const MainArea = () => {
         backgroundColor: "#1f1f1f",
       }}
     >
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => {
+          Alert.alert("Modal has been closed.");
+          setModalVisible(!modalVisible);
+        }}
+      >
+        <View style={styles.centeredView}>
+          <View style={styles.modalView}>
+            <Image
+                source={require('./assets/drone.gif')} 
+                style={{
+                  width: 300,
+                  height: 220,
+                  borderRadius: 5,
+                  marginBottom: 10,
+                }}
+              />
+              <Text 
+                style={{
+                  fontSize: 20,
+                  marginBottom: 5,
+                  fontWeight: "300",
+                }}
+              >
+                drone<Text style={{color:'#007ce2'}}>Tech</Text>
+              </Text>
+              <Text style={styles.modalText}>A drone or a UAV (unmanned aerial vehicle) typically refers to a pilotless aircraft that operates through a combination of technologies, including computer vision, artificial intelligence, object avoidance tech, and others. But drones can also be ground or sea vehicles that operate autonomously.</Text>
+              <Text style={styles.modalText}>There will be some more info about Drone Tech.</Text>
+              <Pressable
+                style={[styles.button, styles.buttonClose]}
+                onPress={() => setModalVisible(!modalVisible)}
+              >
+                <Text style={styles.textStyle}>Done Reading</Text>
+              </Pressable>
+          </View>
+        </View>
+      </Modal>
       < View 
         style={{
           width: '100%',
@@ -250,7 +233,7 @@ const MainArea = () => {
           }}
         >
           <Button 
-            title='Add'
+            title='Login'
             onPress={() => setlogin(true)}
           />
           <Text
@@ -284,13 +267,77 @@ const MainArea = () => {
           />  
       </View>
         <Caption />
-        <Posts />
+        <ScrollView
+          style={{
+            width:330,
+            height: 20,
+            padding: 15,
+            marginTop: 20,
+            marginBottom: 15,
+            borderRadius: 10,
+            backgroundColor: "rgba(255, 255, 255, 0.021)",
+          }}
+        >
+          <View
+            style={{
+              padding: 0,
+              textAlign: 'left',
+              lineHeight: 1,
+            }}
+            >
+            <Image
+              source={require('./assets/drone.gif')} 
+              style={{
+                width: 300,
+                height: 220,
+                borderRadius: 5,
+              }}
+            />
+            <Text
+            style={{
+              color:'white',
+              fontSize: 20,
+              marginTop:-70,
+              padding:10,
+            }}
+            >
+              droneTech
+            </Text>
+            <View
+              style={{
+                width:'100%',
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                marginTop: -20,
+              }}
+            >
+              <Text
+              style={{
+                color:'white',
+                fontSize: 15,
+                padding:10,
+              }}
+              ># 1 Topic of Research
+              </Text>
+              <Pressable
+                style={[styles.button, styles.buttonOpen]}
+                onPress={() => setModalVisible(true)}
+              >
+                <Text style={styles.textStyle}>Read More</Text>
+              </Pressable>
+            </View>
+          </View>
+          <PostTopicsTwo />
+          <PostTopicsThree />
+          <PostTopicsFour />
+        </ScrollView>
         <Footer />
       </View>
 
     </View>
     );
   }
+ 
   if(signin) {
     return(
       <KeyboardAvoidingView
@@ -304,7 +351,7 @@ const MainArea = () => {
         <View style={styles.inner}>
           <Text style={styles.header}>Sign in</Text>
           <TextInput placeholder="Any unique Username" style={styles.textInput} />
-          <TextInput placeholder ="Email id" style={styles.textInput}/>
+          <TextInput secureTextEntry={false} placeholder ="Email id" style={styles.textInput}/>
           <TextInput secureTextEntry={true} style={styles.textInput} placeholder="Password" />
           <TextInput secureTextEntry={true} style={styles.textInput} placeholder="Confirm Password" />
           <View style={styles.btnContainer}>
@@ -361,7 +408,44 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     backgroundColor: "white",
-    marginTop: 12
+    marginTop: 12,
+  },
+  modalView: {
+    margin: 20,
+    marginTop:150,
+    backgroundColor: "white",
+    borderRadius: 20,
+    padding: 20,
+    alignItems: "center",
+    shadowColor: "#1f1f1f",
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowOpacity: 1,
+    shadowRadius: 4,
+    elevation: 5
+  },
+  button: {
+    borderRadius: 20,
+    padding: 10,
+    elevation: 2
+  },
+  buttonOpen: {
+    backgroundColor: "rgba(0, 59, 107, 0.384)",
+    marginRight:5,
+  },
+  buttonClose: {
+    backgroundColor: "#2196F3",
+  },
+  textStyle: {
+    color: "white",
+    fontWeight: "300",
+    textAlign: "center"
+  },
+  modalText: {
+    marginBottom: 15,
+    textAlign: "justify"
   }
 });
 export default MainArea;
