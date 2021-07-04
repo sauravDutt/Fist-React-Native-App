@@ -16,49 +16,6 @@ const Footer = () => {
   );
 }
 
-
-const PostTopicsThree = () => {
-  return(
-    <View
-    style={{
-      padding: 0,
-      marginTop: 15,
-      textAlign: 'left',
-      lineHeight: 1,
-    }}
-    >
-    <Image
-        source={require('./assets/python.gif')} 
-        style={{
-          width: 300,
-          height: 220,
-          borderRadius: 5,
-        }}
-        />
-        <Text
-        style={{
-          color:'white',
-          fontSize: 20,
-          marginTop:-60,
-          padding:10,
-        }}
-        >
-          automation
-        </Text>
-
-        <Text
-        style={{
-          color:'white',
-          fontSize: 15,
-          marginTop: -20,
-          padding:10,
-        }}
-        ># 3 Topic of Research
-        </Text>
-      </View>
-  );
-}
-
 const PostTopicsFour = () => {
   return(
     <View
@@ -112,7 +69,7 @@ const Caption = () => {
         marginBottom: -10,
       }}
     >
-      Choose a topic of interest 👇 
+      Search for a specific topic of interest.👆 
     </Text>
   )
 }
@@ -121,7 +78,8 @@ const MainArea = () => {
   const [signin, setSignin] = useState(false);
   const [modalVisible, setModalVisible] = useState(false);
   const [modalAnn, setModalAnn] = useState(false);
-  
+  const [python, setPython] = useState(false);
+  const [tv, setTv] = useState(false)
   
   if (!login) {
     return(
@@ -212,6 +170,88 @@ const MainArea = () => {
           </View>
         </View>
       </Modal>
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={python}
+        onRequestClose={() => {
+          Alert.alert("Modal has been closed.");
+          setPython(!python);
+        }}
+      >
+        <View style={styles.centeredView}>
+          <View style={styles.modalView}>
+          <Image
+            source={require('./assets/ann.gif')} 
+            style={{
+              width: 300,
+              height: 220,
+              borderRadius: 5,
+              marginBottom: 10,
+              resizeMode:"contain",
+            }}
+          />
+              <Text 
+                style={{
+                  fontSize: 20,
+                  marginBottom: 5,
+                  fontWeight: "300",
+                }}
+              >
+                Automation<Text style={{color:'#007ce2'}}>Python</Text>
+              </Text>
+              <Text style={styles.modalText}>An artificial neural network (ANN) is the piece of a computing system designed to simulate the way the human brain analyzes and processes information. It is the foundation of artificial intelligence (AI) and solves problems that would prove impossible or difficult by human or statistical standards. ANNs have self-learning capabilities that enable them to produce better results as more data becomes available.</Text>
+              <Text style={styles.modalText}>There will be some more info about Artificial Neural Networks soon.</Text>
+              <Pressable
+                style={[styles.button, styles.buttonClose]}
+                onPress={() => setPython(!python)}
+              >
+                <Text style={styles.textStyle}>Done Reading</Text>
+              </Pressable>
+          </View>
+          <Modal
+        animationType="slide"
+        transparent={true}
+        visible={tv}
+        onRequestClose={() => {
+          Alert.alert("Modal has been closed.");
+          setTv(!tv);
+        }}
+      >
+        <View style={styles.centeredView}>
+          <View style={styles.modalView}>
+          <Image
+            source={require('./assets/rickMoty.gif')} 
+            style={{
+              width: 300,
+              height: 220,
+              borderRadius: 5,
+              marginBottom: 10,
+              resizeMode:"contain",
+            }}
+          />
+              <Text 
+                style={{
+                  fontSize: 20,
+                  marginBottom: 5,
+                  fontWeight: "300",
+                }}
+              >
+                tvShows<Text style={{color:'#007ce2'}}>Rick and Moty</Text>
+              </Text>
+              <Text style={styles.modalText}>An artificial neural network (ANN) is the piece of a computing system designed to simulate the way the human brain analyzes and processes information. It is the foundation of artificial intelligence (AI) and solves problems that would prove impossible or difficult by human or statistical standards. ANNs have self-learning capabilities that enable them to produce better results as more data becomes available.</Text>
+              <Text style={styles.modalText}>There will be some more info about Artificial Neural Networks soon.</Text>
+              <Pressable
+                style={[styles.button, styles.buttonClose]}
+                onPress={() => setTv(!tv)}
+              >
+                <Text style={styles.textStyle}>Done Reading</Text>
+              </Pressable>
+          </View>
+        </View>
+      </Modal>
+      </View>
+      </Modal>
       < View 
         style={{
           width: '100%',
@@ -275,6 +315,7 @@ const MainArea = () => {
             placeholder="Search "
           />  
       </View>
+      <Caption />
         <ScrollView
           style={{
             width:330,
@@ -386,8 +427,107 @@ const MainArea = () => {
                     </Pressable>
                   </View>
             </View>
-          <PostTopicsThree />
-          <PostTopicsFour />
+            <View
+              style={{
+                padding: 0,
+                marginTop: 15,
+                textAlign: 'left',
+                lineHeight: 1,
+            }}
+            >
+            <Image
+                source={require('./assets/python.gif')} 
+                style={{
+                  width: 300,
+                  height: 220,
+                  borderRadius: 5,
+                }}
+                />
+                <Text
+                style={{
+                  color:'white',
+                  fontSize: 20,
+                  marginTop:-60,
+                  padding:10,
+                }}
+                >
+                  automation
+                </Text>
+                <View
+                    style={{
+                      width:'100%',
+                      flexDirection: 'row',
+                      justifyContent: 'space-between',
+                      marginTop: -20,
+                    }}
+                  >
+                <Text
+                style={{
+                  color:'white',
+                  fontSize: 15,
+                  padding:10,
+                }}
+                ># 3 Topic of Research
+                </Text>
+                <Pressable
+                  style={[styles.button, styles.buttonOpenPython]}
+                  onPress={() => setPython(true)}
+                >
+                  <Text style={styles.textStyle}>Read More</Text>
+                </Pressable>
+                </View>
+              </View>
+              <View
+                style={{
+                  padding: 0,
+                  marginTop: 15,
+                  marginBottom: 20,
+                  textAlign: 'left',
+                  lineHeight: 1,
+                }}
+              >
+              <Image
+                  source={require('./assets/rickMoty.gif')} 
+                  style={{
+                    width: 300,
+                    height: 220,
+                    borderRadius: 5,
+                  }}
+                  />
+                  <Text
+                  style={{
+                    color:'#000',
+                    fontSize: 20,
+                    marginTop:-60,
+                    padding:10,
+                  }}
+                  >
+                    tvShows
+                  </Text>
+                  <View
+                    style={{
+                      width:'100%',
+                      flexDirection: 'row',
+                      justifyContent: 'space-between',
+                      marginTop: -20,
+                    }}
+                  >
+                  <Text
+                  style={{
+                    color:'#000',
+                    fontSize: 15,
+                    padding:10,
+                  }}
+                  ># 4 Topic of Research
+                  </Text>
+                  <Pressable
+                    style={[styles.button, styles.buttonOpenTv]}
+                    onPress={() => setTv(true)}
+                  >
+                    <Text style={styles.textStyleTv}>Read More</Text>
+                  </Pressable>
+                  </View>
+                </View>
         </ScrollView>
         <Footer />
       </View>
@@ -497,6 +637,10 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(22, 22, 22, 0.315)',
     marginRight: 5,
   },
+  buttonOpenPython: {
+    backgroundColor: 'rgba(22, 22, 22, 0.315)',
+    marginRight: 5,
+  },
   buttonClose: {
     backgroundColor: "#2196F3",
   },
@@ -504,6 +648,11 @@ const styles = StyleSheet.create({
     color: "white",
     fontWeight: "300",
     textAlign: "center"
+  },
+  textStyleTv:{
+    color: "#000",
+    fontWeight: "300",
+    textAlign: "center",
   },
   modalText: {
     marginBottom: 15,
