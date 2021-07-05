@@ -16,63 +16,6 @@ const Footer = () => {
   );
 }
 
-const PostTopicsFour = () => {
-  return(
-    <View
-    style={{
-      padding: 0,
-      marginTop: 15,
-      marginBottom: 20,
-      textAlign: 'left',
-      lineHeight: 1,
-    }}
-    >
-    <Image
-        source={require('./assets/rickMoty.gif')} 
-        style={{
-          width: 300,
-          height: 220,
-          borderRadius: 5,
-        }}
-        />
-        <Text
-        style={{
-          color:'#000',
-          fontSize: 20,
-          marginTop:-60,
-          padding:10,
-        }}
-        >
-          tvShows
-        </Text>
-
-        <Text
-        style={{
-          color:'#000',
-          fontSize: 15,
-          marginTop: -20,
-          padding:10,
-        }}
-        ># 4 Topic of Research
-        </Text>
-      </View>
-  );
-}
-
-const Caption = () => {
-  return (
-    <Text
-      style ={{
-        textAlign:'center',
-        color:'rgba(255, 255, 255, 0.562)',
-        marginTop: 10,
-        marginBottom: -10,
-      }}
-    >
-      Search for a specific topic of interest.👆 
-    </Text>
-  )
-}
 const MainArea = () => {
   const [login, setlogin] = useState(false);
   const [signin, setSignin] = useState(false);
@@ -182,7 +125,7 @@ const MainArea = () => {
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
           <Image
-            source={require('./assets/ann.gif')} 
+            source={require('./assets/python.gif')} 
             style={{
               width: 300,
               height: 220,
@@ -200,8 +143,8 @@ const MainArea = () => {
               >
                 Automation<Text style={{color:'#007ce2'}}>Python</Text>
               </Text>
-              <Text style={styles.modalText}>An artificial neural network (ANN) is the piece of a computing system designed to simulate the way the human brain analyzes and processes information. It is the foundation of artificial intelligence (AI) and solves problems that would prove impossible or difficult by human or statistical standards. ANNs have self-learning capabilities that enable them to produce better results as more data becomes available.</Text>
-              <Text style={styles.modalText}>There will be some more info about Artificial Neural Networks soon.</Text>
+              <Text style={styles.modalText}>Python refers to the Python programming language (with syntax rules for writing what is considered valid Python code) and the Python interpreter software that reads source code (written in the Python language) and performs its instructions.</Text>
+              <Text style={styles.modalText}>The name Python comes from the surreal British comedy group Monty Python, not from the snake. Python programmers are affectionately called Pythonistas, and both Monty Python and serpentine references usually pepper Python tutorials and documentation.</Text>
               <Pressable
                 style={[styles.button, styles.buttonClose]}
                 onPress={() => setPython(!python)}
@@ -209,7 +152,10 @@ const MainArea = () => {
                 <Text style={styles.textStyle}>Done Reading</Text>
               </Pressable>
           </View>
-          <Modal
+          
+      </View>
+      </Modal>
+      <Modal
         animationType="slide"
         transparent={true}
         visible={tv}
@@ -237,10 +183,10 @@ const MainArea = () => {
                   fontWeight: "300",
                 }}
               >
-                tvShows<Text style={{color:'#007ce2'}}>Rick and Moty</Text>
+                tvShows <Text style={{color:'#007ce2'}}>Rick nd Moty</Text>
               </Text>
-              <Text style={styles.modalText}>An artificial neural network (ANN) is the piece of a computing system designed to simulate the way the human brain analyzes and processes information. It is the foundation of artificial intelligence (AI) and solves problems that would prove impossible or difficult by human or statistical standards. ANNs have self-learning capabilities that enable them to produce better results as more data becomes available.</Text>
-              <Text style={styles.modalText}>There will be some more info about Artificial Neural Networks soon.</Text>
+              <Text style={styles.modalText}>Rick and Moty is my favourite animated web series. After having been missing for nearly 20 years, Rick Sanchez suddenly arrives at daughter Beth's doorstep to move in with her and her family. Although Beth welcomes Rick into her home, her husband, Jerry, isn't as happy about the family reunion.</Text>
+              <Text style={styles.modalText}>Jerry is concerned about Rick, a sociopathic scientist, using the garage as his personal laboratory. In the lab, Rick works on a number of sci-fi gadgets, some of which could be considered dangerous. But that's not all Rick does that concerns Jerry. He also goes on adventures across the universe that often involve his grandchildren, Morty and Summer.</Text>
               <Pressable
                 style={[styles.button, styles.buttonClose]}
                 onPress={() => setTv(!tv)}
@@ -249,8 +195,6 @@ const MainArea = () => {
               </Pressable>
           </View>
         </View>
-      </Modal>
-      </View>
       </Modal>
       < View 
         style={{
@@ -299,23 +243,8 @@ const MainArea = () => {
             title='Info'
             onPress={() => Alert.alert('This is just a practice, react native application, trying to cover all the important concepts of this framework and trying to master the art, Nothing serious just practicing.')}
           />
-        </View>
-          <TextInput
-            style={{
-              height: 40,
-              borderColor: "rgba(255, 255, 255, 0.390)",
-              borderRadius:5,
-              borderBottomWidth: 1,
-              padding: 10,
-              marginTop: 20,
-              color: "white",
-              width: '100%',
-              
-            }}
-            placeholder="Search "
-          />  
+        </View> 
       </View>
-      <Caption />
         <ScrollView
           style={{
             width:330,
@@ -610,7 +539,7 @@ const styles = StyleSheet.create({
   },
   modalView: {
     margin: 20,
-    marginTop:130,
+    marginTop:120,
     backgroundColor: "white",
     borderRadius: 20,
     padding: 20,
